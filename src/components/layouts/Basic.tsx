@@ -1,0 +1,40 @@
+import styled from 'styled-components';
+
+import Footer from '../Footer';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
+
+type DashboardLayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  return (
+    <Container>
+      <Header />
+      <Content>
+        <Sidebar />
+        <PageContainer>{children}</PageContainer>
+      </Content>
+      <Footer />
+    </Container>
+  );
+}
+
+export const Container = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #000133;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex: 1;
+`;
+
+export const PageContainer = styled.div`
+  padding: 20px;
+  width: 80vw;
+`;
